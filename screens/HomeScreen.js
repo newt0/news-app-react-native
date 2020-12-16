@@ -32,7 +32,7 @@ const HomeScreen = ({ navigation }) => {
             title={item.title}
             author={item.author}
             imageUrl={item.urlToImage}
-            onPress={() => navigation.navigate('Article')}
+            onPress={() => navigation.navigate('Article', { article: item })}
           />
         )}
       />
