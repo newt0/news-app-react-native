@@ -1,13 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.itemContainer}>
-        <View style={styles.leftContainer}></View>
-        <View style={styles.rightContainer}></View>
+        <View style={styles.leftContainer}>
+          <Image
+            style={{ width: 100, height: 100 }}
+            source={{
+              uri: 'https://picsum.photos/id/10/200/200',
+            }}
+          />
+        </View>
+        <View style={styles.rightContainer}>
+          <Text style={styles.text} numberOfLines={3}>
+            Reinitialized existing Git repository in
+            /Users/newt0/dev/ReactNative/news-app/.git/Reinitialized existing
+            Git repository in /Users/newt0/dev/ReactNative/news-app/.git/
+          </Text>
+          <Text style={styles.subText}>React News</Text>
+        </View>
       </View>
     </View>
   );
@@ -28,11 +42,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   leftContainer: {
-    backgroundColor: 'red',
     width: 100,
   },
   rightContainer: {
-    backgroundColor: 'blue',
     flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    padding: 10,
+  },
+  text: {
+    fontSize: 16,
+  },
+  subText: {
+    fontSize: 12,
+    color: 'gray',
   },
 });
