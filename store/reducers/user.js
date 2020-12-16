@@ -1,6 +1,7 @@
 const initialState = {
   clips: [],
 };
+
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_CLIP':
@@ -17,3 +18,5 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;
