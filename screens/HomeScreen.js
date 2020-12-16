@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const URL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${Constants.manifest.extra.newsApiKey}`;
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [articles, setArticles] = useState([]);
 
   const fetchArticles = async () => {
@@ -32,7 +32,7 @@ const HomeScreen = () => {
             title={item.title}
             author={item.author}
             imageUrl={item.urlToImage}
-            // key={index}
+            onPress={() => navigation.navigate('Article')}
           />
         )}
       />
