@@ -4,15 +4,18 @@ import ListItem from './components/ListItem';
 import articles from './dummies/article.json';
 
 export default function App() {
-  const items = articles.map((article, index) => (
-    <ListItem
-      title={article.title}
-      author={article.author}
-      imageUrl={article.urlToImage}
-      key={index}
-    />
-  ));
-  return <View style={styles.container}>{items}</View>;
+  return (
+    <View style={styles.container}>
+      {articles.map((article, index) => (
+        <ListItem
+          title={article.title}
+          author={article.author}
+          imageUrl={article.urlToImage}
+          key={index}
+        />
+      ))}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
