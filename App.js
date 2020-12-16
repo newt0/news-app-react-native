@@ -1,19 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import ListItem from './components/ListItem';
 import articles from './dummies/article.json';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      {articles.map((article, index) => (
-        <ListItem
-          title={article.title}
-          author={article.author}
-          imageUrl={article.urlToImage}
-          key={index}
-        />
-      ))}
+      <FlatList
+        data={articles}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item }) => (
+          <ListItem
+            title={item.title}
+            author={item.author}
+            imageUrl={item.urlToImage}
+            // key={index}
+          />
+        )}
+      />
     </View>
   );
 }
@@ -22,8 +26,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   itemContainer: {
     height: 100,
