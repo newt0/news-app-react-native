@@ -3,16 +3,25 @@ import { StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import ListItem from './components/ListItem';
 import dummyArticles from './dummies/article.json';
 import Constants from 'expo-constants';
+import axios from 'axios';
+
+const URL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${Constants.manifest.extra.newsApiKey}`;
 
 export default function App() {
   const [articles, setArticles] = useState([]);
 
+  const fetchArticles = async () => {
+    try {
+      const response = await axios.get(URL);
+      setArticles(response.data.articles);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    alert(Constants.manifest.extra.newsApiKey);
-    const timer = setTimeout(() => {
-      setArticles(dummyArticles);
-    }, 2000);
-    return () => clearTimeout(timer);
+    fetchArticles();
   }, []);
 
   return (
