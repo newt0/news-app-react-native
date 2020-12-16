@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import ListItem from './components/ListItem';
 import articles from './dummies/article.json';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <FlatList
         data={articles}
         keyExtractor={(item, index) => index.toString()}
@@ -18,7 +18,7 @@ export default function App() {
           />
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
