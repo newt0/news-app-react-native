@@ -14,6 +14,7 @@ const ListItem = ({ title, author, imageUrl, onPress }) => {
           />
         )}
       </View>
+
       <View style={styles.rightContainer}>
         <Text style={styles.text} numberOfLines={3}>
           {title}
