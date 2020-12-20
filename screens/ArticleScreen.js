@@ -4,6 +4,7 @@ import { StyleSheet, SafeAreaView } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { addClip, deleteClip } from '.././store/actions/user';
 import ClipButton from '../components/ClipButton';
+import Loading from '../components/Loading';
 
 const ArticleScreen = ({ route }) => {
   const dispatch = useDispatch();
@@ -26,7 +27,11 @@ const ArticleScreen = ({ route }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ClipButton onPress={toggleClip} enabled={isClipped()} />
-      <WebView source={{ uri: article.url }} />
+      <WebView
+        source={{ uri: article.url }}
+        startInLoadingState={true}
+        renderLoading={() => <Loading />}
+      />
     </SafeAreaView>
   );
 };
