@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { StyleSheet, SafeAreaView, Text, FlatList } from 'react-native';
 import ListItem from '../components/ListItem';
 
-const ClipScreen = () => {
+const ClipScreen = ({ navigation }) => {
   const user = useSelector((state) => state.user);
   const { clips } = user;
   return (
